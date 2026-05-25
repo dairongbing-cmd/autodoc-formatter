@@ -1,0 +1,53 @@
+{
+    "label": "休闲排版",
+    "description": "适合个人笔记、博客文章等轻松场合",
+    "rules": {
+        "font": {
+            "family": "Arial",
+            "size_pt": 11.0,
+            "color_hex": "#333333",
+            "bold_default": false,
+            "italic_default": false
+        },
+        "paragraph": {
+            "alignment": "left",
+            "line_spacing": 1.3,
+            "first_line_indent_cm": null,
+            "space_before_pt": 0,
+            "space_after_pt": 8
+        },
+        "page": {
+            "size": "A4",
+            "orientation": "portrait",
+            "margins_cm": {
+                "top_cm": 2.0,
+                "bottom_cm": 2.0,
+                "left_cm": 2.0,
+                "right_cm": 2.0
+            }
+        },
+        "headings": {
+            "1": { "font_family": "Arial", "font_size_pt": 20, "bold": true, "color_hex": "#e65100" },
+            "2": { "font_family": "Arial", "font_size_pt": 16, "bold": true, "color_hex": "#ef6c00" },
+            "3": { "font_family": "Arial", "font_size_pt": 13, "bold": true, "color_hex": "#f57c00" },
+            "4": { "font_family": "Arial", "font_size_pt": 11, "bold": true, "color_hex": "#555555" },
+            "5": { "font_family": "Arial", "font_size_pt": 11, "bold": false, "italic": true, "color_hex": "#666666" },
+            "6": { "font_family": "Arial", "font_size_pt": 11, "bold": false, "italic": true, "color_hex": "#777777" }
+        },
+        "header": {
+            "enabled": false,
+            "text": null,
+            "show_page_numbers": false
+        },
+        "footer": {
+            "enabled": true,
+            "text": null,
+            "show_page_numbers": true
+        },
+        "images": {
+            "max_width_cm": 16.0,
+            "alignment": "center",
+            "add_captions": false
+        }
+    }
+}

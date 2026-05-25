@@ -1,0 +1,53 @@
+{
+    "label": "商务报告",
+    "description": "适合公司内部报告和商务文档",
+    "rules": {
+        "font": {
+            "family": "Calibri",
+            "size_pt": 11.0,
+            "color_hex": "#1a1a1a",
+            "bold_default": false,
+            "italic_default": false
+        },
+        "paragraph": {
+            "alignment": "left",
+            "line_spacing": 1.15,
+            "first_line_indent_cm": null,
+            "space_before_pt": 0,
+            "space_after_pt": 8
+        },
+        "page": {
+            "size": "A4",
+            "orientation": "portrait",
+            "margins_cm": {
+                "top_cm": 2.0,
+                "bottom_cm": 2.0,
+                "left_cm": 2.5,
+                "right_cm": 2.5
+            }
+        },
+        "headings": {
+            "1": { "font_family": "Calibri", "font_size_pt": 20, "bold": true, "color_hex": "#1a56db", "space_before_pt": 18, "space_after_pt": 10 },
+            "2": { "font_family": "Calibri", "font_size_pt": 16, "bold": true, "color_hex": "#1e40af", "space_before_pt": 14, "space_after_pt": 8 },
+            "3": { "font_family": "Calibri", "font_size_pt": 13, "bold": true, "color_hex": "#1e3a8a", "space_before_pt": 10, "space_after_pt": 6 },
+            "4": { "font_family": "Calibri", "font_size_pt": 11, "bold": true, "italic": false, "space_before_pt": 8, "space_after_pt": 4 },
+            "5": { "font_family": "Calibri", "font_size_pt": 11, "bold": true, "italic": true, "space_before_pt": 8, "space_after_pt": 4 },
+            "6": { "font_family": "Calibri", "font_size_pt": 11, "bold": false, "italic": true, "space_before_pt": 6, "space_after_pt": 4 }
+        },
+        "header": {
+            "enabled": true,
+            "text": null,
+            "show_page_numbers": false
+        },
+        "footer": {
+            "enabled": true,
+            "text": null,
+            "show_page_numbers": true
+        },
+        "images": {
+            "max_width_cm": 16.0,
+            "alignment": "center",
+            "add_captions": true
+        }
+    }
+}

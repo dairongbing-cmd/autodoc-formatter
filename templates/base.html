@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoDocFormatter - 自动文档排版</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>AutoDocFormatter</h1>
+        <span class="subtitle">自动文档排版工具</span>
+    </header>
+    <main class="app-main">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="app-footer">
+        <span>支持 .docx / .txt / .md 格式</span>
+    </footer>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/upload.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/preview.js"></script>
+</body>
+</html>

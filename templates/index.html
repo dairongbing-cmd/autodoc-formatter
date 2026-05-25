@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoDocFormatter - 自动文档排版</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>AutoDocFormatter</h1>
+        <span class="subtitle">自动文档排版工具</span>
+    </header>
+    <main class="app-main">
+        <div id="app">
+            <section id="panel-upload" class="panel active">
+                <h2>上传文档</h2>
+                <div id="drop-zone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <span class="drop-icon">📄</span>
+                        <p>拖拽文件到此处，或点击选择文件</p>
+                        <p class="drop-hint">支持 .docx / .txt / .md 格式，最大 50MB</p>
+                        <input type="file" id="file-input" accept=".docx,.txt,.md,.markdown" hidden>
+                        <button id="btn-select-file" class="btn btn-primary">选择文件</button>
+                    </div>
+                </div>
+                <div id="upload-result" class="upload-result hidden">
+                    <h3>文件信息</h3>
+                    <table class="info-table">
+                        <tr><td>文件名</td><td id="info-filename">-</td></tr>
+                        <tr><td>类型</td><td id="info-type">-</td></tr>
+                        <tr><td>大小</td><td id="info-size">-</td></tr>
+                        <tr><td>段落数</td><td id="info-paragraphs">-</td></tr>
+                        <tr><td>表格数</td><td id="info-tables">-</td></tr>
+                    </table>
+                    <button id="btn-next-config" class="btn btn-primary">下一步：配置格式</button>
+                </div>
+                <div id="upload-error" class="error-message hidden"></div>
+            </section>
+
+            <section id="panel-config" class="panel">
+                <h2>格式配置</h2>
+                <div class="preset-section">
+                    <label>选择预设：</label>
+                    <select id="preset-select">
+                        <option value="">-- 请选择 --</option>
+                    </select>
+                    <button id="btn-apply-preset" class="btn btn-sm">应用预设</button>
+                </div>
+                <form id="config-form" class="config-form">
+                    <fieldset>
+                        <legend>字体设置</legend>
+                        <div class="form-row">
+                            <label>字体：<input type="text" id="cfg-font-family" value="Times New Roman"></label>
+                            <label>字号(pt)：<input type="number" id="cfg-font-size" value="12" min="6" max="72" step="0.5"></label>
+                            <label>颜色：<input type="color" id="cfg-font-color" value="#000000"></label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>段落设置</legend>
+                        <div class="form-row">
+                            <label>对齐：
+                                <select id="cfg-para-align">
+                                    <option value="left">左对齐</option>
+                                    <option value="center">居中</option>
+                                    <option value="right">右对齐</option>
+                                    <option value="justify">两端对齐</option>
+                                </select>
+                            </label>
+                            <label>行间距：<input type="number" id="cfg-line-spacing" value="1.15" min="1" max="3" step="0.05"></label>
+                            <label>首行缩进(cm)：<input type="number" id="cfg-indent" value="0" min="0" max="5" step="0.1"></label>
+                        </div>
+                        <div class="form-row">
+                            <label>段前间距(pt)：<input type="number" id="cfg-space-before" value="0" min="0" max="72"></label>
+                            <label>段后间距(pt)：<input type="number" id="cfg-space-after" value="6" min="0" max="72"></label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>页面设置</legend>
+                        <div class="form-row">
+                            <label>纸张：
+                                <select id="cfg-page-size">
+                                    <option value="A4">A4</option>
+                                    <option value="Letter">Letter</option>
+                                </select>
+                            </label>
+                            <label>方向：
+                                <select id="cfg-orientation">
+                                    <option value="portrait">纵向</option>
+                                    <option value="landscape">横向</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-row">
+                            <label>上边距(cm)：<input type="number" id="cfg-margin-top" value="2.54" min="0" max="10" step="0.1"></label>
+                            <label>下边距(cm)：<input type="number" id="cfg-margin-bottom" value="2.54" min="0" max="10" step="0.1"></label>
+                            <label>左边距(cm)：<input type="number" id="cfg-margin-left" value="2.54" min="0" max="10" step="0.1"></label>
+                            <label>右边距(cm)：<input type="number" id="cfg-margin-right" value="2.54" min="0" max="10" step="0.1"></label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>页眉页脚</legend>
+                        <div class="form-row">
+                            <label><input type="checkbox" id="cfg-header-enabled"> 启用页眉</label>
+                            <label>页眉文字：<input type="text" id="cfg-header-text" placeholder="页眉内容"></label>
+                            <label><input type="checkbox" id="cfg-header-pagenum"> 页眉显示页码</label>
+                        </div>
+                        <div class="form-row">
+                            <label><input type="checkbox" id="cfg-footer-enabled"> 启用页脚</label>
+                            <label>页脚文字：<input type="text" id="cfg-footer-text" placeholder="页脚内容"></label>
+                            <label><input type="checkbox" id="cfg-footer-pagenum" checked> 页脚显示页码</label>
+                        </div>
+                    </fieldset>
+                    <div class="form-actions">
+                        <button type="button" id="btn-preview" class="btn btn-secondary">预览效果</button>
+                        <button type="button" id="btn-format" class="btn btn-primary">排版并下载</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="panel-preview" class="panel">
+                <div class="preview-toolbar">
+                    <h2>预览</h2>
+                    <div class="preview-controls">
+                        <button id="btn-back-config" class="btn btn-sm">返回配置</button>
+                        <button id="btn-download" class="btn btn-primary">下载 .docx</button>
+                    </div>
+                </div>
+                <div class="preview-container">
+                    <iframe id="preview-frame" sandbox="allow-same-origin"></iframe>
+                </div>
+                <div id="download-status" class="status-message hidden"></div>
+            </section>
+        </div>
+    </main>
+    <footer class="app-footer">
+        <span>支持 .docx / .txt / .md 格式</span>
+    </footer>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/upload.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/preview.js"></script>
+</body>
+</html>

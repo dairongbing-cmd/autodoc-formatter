@@ -1,0 +1,24 @@
+<section id="panel-upload" class="panel active">
+    <h2>上传文档</h2>
+    <div id="drop-zone" class="drop-zone">
+        <div class="drop-zone-content">
+            <span class="drop-icon">📄</span>
+            <p>拖拽文件到此处，或点击选择文件</p>
+            <p class="drop-hint">支持 .docx / .txt / .md 格式，最大 50MB</p>
+            <input type="file" id="file-input" accept=".docx,.txt,.md,.markdown" hidden>
+            <button id="btn-select-file" class="btn btn-primary">选择文件</button>
+        </div>
+    </div>
+    <div id="upload-result" class="upload-result hidden">
+        <h3>文件信息</h3>
+        <table class="info-table">
+            <tr><td>文件名</td><td id="info-filename">-</td></tr>
+            <tr><td>类型</td><td id="info-type">-</td></tr>
+            <tr><td>大小</td><td id="info-size">-</td></tr>
+            <tr><td>段落数</td><td id="info-paragraphs">-</td></tr>
+            <tr><td>表格数</td><td id="info-tables">-</td></tr>
+        </table>
+        <button id="btn-next-config" class="btn btn-primary">下一步：配置格式</button>
+    </div>
+    <div id="upload-error" class="error-message hidden"></div>
+</section>
