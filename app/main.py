@@ -56,3 +56,8 @@ from app.routes import documents, presets, upload
 app.include_router(upload.router)
 app.include_router(documents.router)
 app.include_router(presets.router)
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)
