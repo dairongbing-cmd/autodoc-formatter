@@ -1,6 +1,11 @@
+import sys
+from pathlib import Path
+
+# Allow running as python3 app/main.py directly
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import asyncio
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 import aiofiles
 from fastapi import FastAPI
