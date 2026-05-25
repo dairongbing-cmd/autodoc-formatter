@@ -5,6 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Running the app
 
 ```bash
+# Either:
+python3 app/main.py
+
+# Or:
 python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
